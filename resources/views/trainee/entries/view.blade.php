@@ -1,0 +1,1 @@
+@include('trainee.entries.show')
