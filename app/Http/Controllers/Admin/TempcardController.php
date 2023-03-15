@@ -140,5 +140,4 @@ class TempcardController extends Controller {
         return response()->json(['success' => 'Success!', 'active' => $model->active], 200);
     }
 
-
 }

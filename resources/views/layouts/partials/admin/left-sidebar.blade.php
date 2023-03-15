@@ -170,6 +170,10 @@
                         @hasAccess('employee.break_timings')
                         <li><a href="{{ route('employee.break_timings').'?employeetype=P' }}"><i class="mdi  mdi-chevron-double-right"></i>&nbsp;Break Timings</a></li>
                         @endhasAccess
+
+                        @hasAccess('teams.index')
+                        <li><a href="{{ route('teams.index') }}"><i class="mdi  mdi-chevron-double-right"></i>&nbsp;Teams</a></li>
+                        @endhasAccess
                     </ul>
                 </li>
 

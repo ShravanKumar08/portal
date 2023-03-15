@@ -33,6 +33,8 @@ class Employee extends BaseModel
 
     public static $gender = ['M' => 'Male', 'F' => 'Female'];
 
+    public static $options = ['1' => 'Yes', 'F' => 'No'];
+
     const PHOTO_UPLOAD_PATH = 'uploads/profile/original';
     const PHOTO_SMALL_UPLOAD_PATH = 'uploads/profile/small';
 
@@ -62,6 +64,11 @@ class Employee extends BaseModel
     public function designation()
     {
         return $this->belongsTo(Designation::class);
+    }
+
+    public function teamMerber()
+    {
+        return $this->belongsTo(TeamMember::class, 'id', 'teammate_id');
     }
 
     public function officetiming()
@@ -302,6 +309,20 @@ class Employee extends BaseModel
     {
         return $query->whereHas('user', function ($q) use ($active){
             $q->where('active', $active);
+        });
+    }
+
+    public function scopeTeamLead($query, $active = 1)
+    {
+        return $query->whereHas('user', function ($q) use ($active){
+            $q->where('isTeamLead', $active);
+        });
+    }
+
+    public function scopeTeamMembers($query, $active = 0)
+    {
+        return $query->whereHas('user', function ($q) use ($active){
+            $q->where('isTeamLead', $active);
         });
     }
     

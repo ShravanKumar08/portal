@@ -1,0 +1,1 @@
+@include('admin.teams.partials.show')

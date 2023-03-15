@@ -64,6 +64,19 @@
                 {{ Form::text('casual_count_this_year', old('casual_count_this_year'), ['class' => 'form-control']) }}
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ Form::label('isTeamLead','Team Lead*',['class'=>'']) }}
+                <div class="form-check">
+                    @foreach ($isLeads as $id=>$isLead)
+                    <label class="custom-control custom-radio">
+                        {!! Form::radio('isTeamLead', $id, (@$User->isTeamLead == $id), ['class' => 'custom-control-input'] ); !!} {{$isLead}}
+                        <span class="custom-control-indicator"></span>
+                    </label>
+                    @endforeach
+                </div>
+            </div>
+        </div>
         {{--<div class="col-md-4">--}}
             {{--<div class="form-group">--}}
                 {{--{{ Form::label('phone','Phone*',['class'=>'']) }}--}}

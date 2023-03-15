@@ -61,6 +61,7 @@ class EmployeeController extends Controller {
     protected function _append_form_variables(&$data) {
         $data['types'] = Employee::$types;
         $data['gender'] = Employee::$gender;
+        $data['isLeads'] = Employee::$options;
         $data['custom_fields'] = CustomfieldHelper::getCustomfieldsByModule(Employee::class);
         $data['officetimings'] = Officetiming::oldest('name')->pluck("name","id")->toArray();
     }
@@ -367,7 +368,7 @@ class EmployeeController extends Controller {
     protected function _save_user($request)
     {
         $user = User::firstOrNew(['email' => $request->email]);
-        $userdata = $request->only(['name', 'email', 'password','active']);
+        $userdata = $request->only(['name', 'email', 'password','active', 'isTeamLead']);
         if (!empty($userdata['password'])) {
             $userdata['password'] = bcrypt($userdata['password']);
         } else {

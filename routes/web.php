@@ -193,6 +193,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
     Route::resource('interviewstatus', 'InterviewStatusController');
     Route::resource('interviewprescreening', 'InterviewPrescreeningController');
     Route::resource('assesment', 'AssesmentController');
+    Route::resource('teams', 'TeamController');
     Route::post('assesment/reupdate', 'AssesmentController@reupdate')->name('assesment.reupdate');
     Route::get('/evaluation/{id}/pdf', 'AssesmentController@evaluation_download')->name('assesment.evaluation_download');
 
