@@ -66,6 +66,11 @@ class Employee extends BaseModel
         return $this->belongsTo(Designation::class);
     }
 
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'id', 'lead_id');
+    }
+
     public function teamMerber()
     {
         return $this->belongsTo(TeamMember::class, 'id', 'teammate_id');

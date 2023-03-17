@@ -43,21 +43,21 @@ Route::get('force_download/{export}', 'HomeController@forceDownload');
 
 Route::get('backup_download', 'HomeController@backup_download');
 
-Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user', 'admin', 'web'])->group(function () {
+Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user', 'admin', 'web', 'sentry'])->group(function () {
     //User Routes
     Route::get('dashboard', 'UserController@dashboard')->name('dashboard');
     Route::post('calendar/events', 'UserController@calendar_events')->name('calendar_events');
     Route::match(['get', 'post'], 'profile', 'UserController@myprofile')->name('myprofile');
     Route::post('user/{id}','UserController@active')->name('user.active');
-    
+
     //Entry Routes
     Route::get('entry/entryitems/{id}', 'EntryController@getentryitems')->name('entry.entryitems');
     Route::post('entry/addremarks', 'EntryController@addremarks')->name('entry.addremarks');
-    
+
     //Setting Routes
     Route::get('setting/payslip', 'SettingController@payslip')->name('payslip');
 
-    //Employee Routes 
+    //Employee Routes
     Route::get('employee/searchdesignation', 'EmployeeController@searchDesignation')->name('employee.searchdesignation');
     Route::get('employee/access/{id}', 'EmployeeController@access')->name('employee.access');
     Route::post('employee/access_store/{id}', 'EmployeeController@access_store')->name('employee.access_store');
@@ -68,8 +68,6 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
     Route::get('employee/monthlybreaks', 'EmployeeController@employeeMonthlyBreaks')->name('employee.monthlybreaks');
     Route::get('employee/traineebreaktimings', 'EmployeeController@getTraineebreakTimingReports')->name('employee.trainee_breaktimings');
     Route::get('employee/traineemonthlybreaks', 'EmployeeController@TraineeMonthlyBreaks')->name('employee.trainee_monthlybreaks');
-
-
 
     //User permission Routes
     Route::post('userpermission/addremarks', 'UserpermissionController@addremarks')->name('userpermission.addremarks');
@@ -84,7 +82,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
     Route::match(['get', 'post'],'leave/toggleleave', 'LeaveController@toggleLeave')->name('leave.toggleLeave');
     Route::match(['get', 'post'],'leave/convertleave', 'LeaveController@convertLeave')->name('leave.convertLeave');
     Route::get('leave/showaudits', 'LeaveController@showAudits')->name('leave.audits');
-    
+
      //late_entries routes
     Route::post('late_entries/addremarks', 'LateEntryController@addremarks')->name('late_entries.addremarks');
 
@@ -112,7 +110,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
     Route::post('report/setpermissiontime', 'ReportController@setPermissionTime')->name('report.setPermissionTime');
     Route::delete('report/deletereportitems','ReportController@deleteReportitems')->name('report.deleteReportitems');
     Route::get('report/getreportitems', 'ReportController@getReportitems')->name('report.getReportitems');
-    
+
     //Setting Routes
     Route::get('setting/searchuseremail', 'SettingController@searchUserEmail')->name('setting.searchUserEmail');
     Route::post('setting/emailpreview', 'SettingController@emailpreview')->name('setting.emailpreview');
@@ -130,7 +128,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
 
     //polls
     Route::get('viewvotes/{id}', ['uses' => 'UserController@viewVotes'])->name('viewVotes');
-    
+
     //Designation routes
     Route::post('designation/{id}','DesignationController@active')->name('designation.active');
 
@@ -194,10 +192,9 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
     Route::resource('interviewprescreening', 'InterviewPrescreeningController');
     Route::resource('assesment', 'AssesmentController');
     Route::resource('teams', 'TeamController');
+    Route::resource('skills', 'SkillController');
     Route::post('assesment/reupdate', 'AssesmentController@reupdate')->name('assesment.reupdate');
     Route::get('/evaluation/{id}/pdf', 'AssesmentController@evaluation_download')->name('assesment.evaluation_download');
-
-
 });
 
 Route::prefix('employee')->namespace('Employee')->as('employee.')->middleware(['role:employee', 'web'])->group(function () {
@@ -208,7 +205,7 @@ Route::prefix('employee')->namespace('Employee')->as('employee.')->middleware(['
 
     //Polls
     Route::get('polls', ['uses' => 'UserController@polls'])->name('polls');
-    Route::get('vote/{id}', ['uses' => 'UserController@vote'])->name('vote');    
+    Route::get('vote/{id}', ['uses' => 'UserController@vote'])->name('vote');
     
     Route::match(['get', 'post'], 'contact', 'UserController@composemail')->name('composemail');
     Route::post('contact/composefileupload', 'UserController@composemail')->name('composefileupload');
@@ -276,6 +273,7 @@ Route::prefix('employee')->namespace('Employee')->as('employee.')->middleware(['
     Route::resource('holiday', 'HolidayController');
     Route::resource('usersettings', 'UserSettingController');
     Route::resource('evaluation', 'EvaluationController');
+    Route::resource('skills', 'SkillController');
     
 });
 

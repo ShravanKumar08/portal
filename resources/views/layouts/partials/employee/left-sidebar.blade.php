@@ -123,14 +123,15 @@
                 <!-- <li><a class="waves-effect waves-dark" href="{{ route('employee.polls') }}" aria-expanded="false"><i class="mdi mdi-poll"></i><span class="hide-menu">Polls</span></a></li> -->
                 <li><a class="waves-effect waves-dark" href="{{ route('employee.composemail') }}" aria-expanded="false"><i class="mdi mdi-message-text-outline"></i><span class="hide-menu">Contact</span></a></li>
                 <li><a class="waves-effect waves-dark" href="{{ route('employee.usersettings.index') }}" aria-expanded="false"><i class="mdi mdi-settings-box"></i><span class="hide-menu">Settings</span></a></li>
+                <li><a class="waves-effect waves-dark" href="{{ route('employee.skills.index') }}" aria-expanded="false"><i class="mdi mdi-settings-box"></i><span class="hide-menu">Skills</span></a></li>
                 <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                    class="mdi mdi-account-card-details"></i><span class="hide-menu">Assesment</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a class="waves-effect waves-dark" href="{{ route('employee.evaluation.index').'?scope=self'  }}" aria-expanded="false"><i class="mdi mdi-chevron-double-right"></i> Self</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{ route('employee.evaluation.index').'?scope=others' }}" aria-expanded="false"><i class="mdi  mdi-chevron-double-right"></i> Others</a></li>
-                        </ul>
-                    </li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                class="mdi mdi-account-card-details"></i><span class="hide-menu">Assesment</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a class="waves-effect waves-dark" href="{{ route('employee.evaluation.index').'?scope=self'  }}" aria-expanded="false"><i class="mdi mdi-chevron-double-right"></i> Self</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ route('employee.evaluation.index').'?scope=others' }}" aria-expanded="false"><i class="mdi  mdi-chevron-double-right"></i> Others</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

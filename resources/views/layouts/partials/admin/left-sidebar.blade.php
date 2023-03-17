@@ -132,7 +132,7 @@
                                 @endhasAccess
                             </ul>
                         </li>
-
+                        @hasAccess('entry.index')
                          <li>
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                                         class="mdi mdi-chevron-double-right"></i><span>Entries</span></a>
@@ -163,6 +163,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endhasAccess
                         @hasAccess('employee.upcoming_birthday')
                         <li><a href="{{ route('employee.upcoming_birthday').'?employeetype=P' }}"><i class="mdi  mdi-chevron-double-right"></i>&nbsp;Upcoming Birthday</a></li>
                         @endhasAccess
@@ -279,6 +280,7 @@
 
                     </ul>
                 </li> --}}
+                @hasAccess('report.index')
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                                 class="mdi mdi-library-books"></i><span class="hide-menu">Reports</span></a>
@@ -325,6 +327,7 @@
 
                     </ul>
                 </li>
+                @endhasAccess
                 @hasAccess('compensation.index')
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
@@ -359,6 +362,7 @@
                     </ul>
                 </li>
                 @endhasAccess
+                @hasAccess('officetimingslot.index')
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                                 class="mdi mdi-timer-sand"></i><span class="hide-menu">Office Timings</span></a>
@@ -379,6 +383,7 @@
                         @endhasAccess
                     </ul>
                 </li>
+                @endhasAccess
                 <li>
                      @hasAccess('setting.index')
                         <a class="waves-effect waves-dark" href="{{ route('setting.generate_payslip') }}" aria-expanded="false">
@@ -483,6 +488,10 @@
                 @hasAccess('assesment.index')
                 <li><a class="waves-effect waves-dark" href="{{ route('assesment.index') }}" aria-expanded="false"><i
                                 class="mdi mdi-account-card-details"></i><span class="hide-menu">Assesment</span></a></li>
+                @endhasAccess
+                @hasAccess('skills.index')
+                <li><a class="waves-effect waves-dark" href="{{ route('skills.index') }}" aria-expanded="false"><i
+                                class="mdi mdi-account-card-details"></i><span class="hide-menu">Skills</span></a></li>
                 @endhasAccess
             </ul>
         </nav>

@@ -30,9 +30,14 @@ return [
     */
 
     'channels' => [
+        'sentry' => [
+            'driver' => 'sentry',
+            'level'  => 'debug',
+            'bubble' => true,
+        ],
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily', 'sentry']
         ],
 
         'single' => [

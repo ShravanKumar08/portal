@@ -6,6 +6,7 @@ use App\Helpers\AppHelper;
 use App\Models\Employee;
 use App\Models\Leave;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class LeaveDataTable extends BaseDataTable
 {
@@ -54,9 +55,7 @@ class LeaveDataTable extends BaseDataTable
             ->editColumn('status', function ($model) {
                 $color_class = AppHelper::getButtonColorByStatus($model->status);
 
-                if(\Auth::user()->hasRole('super-user')) { 
-                    return "<span class='label label-{$color_class}'>{$model->statusname}</span>";
-                } elseif ($this->role == "admin") {
+                if ($this->role == "admin" || \Auth::user()->hasRole('super-user')) {
                     return "<div class='btn-group " . $this->hasPermissionAccess('leave.addremarks') . " '>
                                 <button type='button' class='btn btn-{$color_class} btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>{$model->statusname}</button>
                                 <div class='dropdown-menu animated lightSpeedIn'>
@@ -115,7 +114,7 @@ class LeaveDataTable extends BaseDataTable
         }
 
         $query->whereHas('employee', function ($q) {
-            if(request()->has('inactive_employee') == false){
+            if(request()->has('inactive_employee') == false) {
                 $q->active();
             }
 
@@ -127,6 +126,20 @@ class LeaveDataTable extends BaseDataTable
         if($this->role == 'trainee' || request()->employeetype == 'T'){
             $query->withoutGlobalScope('permanent');
             $query->trainee();
+        }
+
+        if (Auth::user()->hasRole('super-user')) {
+            $team = @Auth::user()->employee->team;
+            $teamMembers = $team->teamMembers->pluck('teammate_id')->toArray();
+
+            if ($team) {
+                $query->whereHas('employee', function ($q) use ($teamMembers) {
+                    return $q->whereIn('id', $teamMembers);
+                });
+            } else {
+                $query = $query->where('id', 'SuperUserHaveNotTeam');
+            }
+            
         }
 
         return $query;

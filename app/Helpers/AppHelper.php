@@ -84,7 +84,6 @@ class AppHelper
     public static function getMinutesFromTime($time)
     {
         $parse = Carbon::parse($time);
-        dd($parse->hour);
         return ($parse->hour * 60) + $parse->minute;
     }
 
@@ -370,7 +369,6 @@ class AppHelper
     public static function getSecondsFromTime($time)
     {
         $time_split = explode(':',$time);
-        dd($time_split);
         return ($time_split[0] * 60 * 60 ) + ($time_split[1] * 60) + ($time_split[2]);
     }
 }
