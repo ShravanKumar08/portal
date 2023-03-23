@@ -124,6 +124,7 @@
                 <li><a class="waves-effect waves-dark" href="{{ route('employee.composemail') }}" aria-expanded="false"><i class="mdi mdi-message-text-outline"></i><span class="hide-menu">Contact</span></a></li>
                 <li><a class="waves-effect waves-dark" href="{{ route('employee.usersettings.index') }}" aria-expanded="false"><i class="mdi mdi-settings-box"></i><span class="hide-menu">Settings</span></a></li>
                 <li><a class="waves-effect waves-dark" href="{{ route('employee.skills.index') }}" aria-expanded="false"><i class="mdi mdi-settings-box"></i><span class="hide-menu">Skills</span></a></li>
+                <li><a class="waves-effect waves-dark" href="{{ route('employee.idps.index') }}" aria-expanded="false"><i class="mdi mdi-settings-box"></i><span class="hide-menu">IDP</span></a></li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                                 class="mdi mdi-account-card-details"></i><span class="hide-menu">Assesment</span></a>

@@ -76,6 +76,11 @@ class Employee extends BaseModel
         return $this->belongsTo(TeamMember::class, 'id', 'teammate_id');
     }
 
+    public function idp()
+    {
+        return $this->belongsTo(IDP::class, 'id', 'employee_id');
+    }
+
     public function officetiming()
     {
         return $this->belongsTo(Officetiming::class);

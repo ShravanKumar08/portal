@@ -179,9 +179,11 @@ Breadcrumbs::register("trainee.polls", function ($breadcrumbs) {
 $admin_routes = [
     'employee', 'setting', 'project', 'technology', 'holiday', 'designation', 'userpermission', 'customfield', 'leave',
     'tempcard','lectures',
-    'entry', 'officetiming', 'late_entries', 'compensation', 'report', 'officetimingslot', 'platform', 'grade', 'question', "permission","interviewstatus","interviewcall" ,"interviewprescreening", "schedule", "assesment", "teams", "skills"
+    'entry', 'officetiming', 'late_entries', 'compensation', 'report', 'officetimingslot', 'platform', 'grade', 'question', "permission","interviewstatus","interviewcall" ,"interviewprescreening", "schedule", "assesment",
+    "teams", "skills"
 ];
-$employee_routes = ['employee.userpermission','employee.lectures' , 'employee.leave', 'employee.report', 'employee.entry', 'employee.late_entries', 'employee.compensation', 'employee.holiday', 'employee.usersettings', 'employee.mailoverride' ,'employee.evaluation' ,'employee.skills'];
+$employee_routes = ['employee.userpermission','employee.lectures' , 'employee.leave', 'employee.report', 'employee.entry', 'employee.late_entries', 'employee.compensation', 'employee.holiday',
+    'employee.usersettings', 'employee.mailoverride' ,'employee.evaluation' ,'employee.skills', 'employee.idps'];
 $trainee_routes = ['trainee.entry', 'trainee.userpermission', 'trainee.leave','trainee.late_entries','trainee.report','trainee.lectures'];
 
 $resources = array_merge($admin_routes, $employee_routes, $trainee_routes);

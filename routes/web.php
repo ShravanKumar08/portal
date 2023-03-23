@@ -274,6 +274,7 @@ Route::prefix('employee')->namespace('Employee')->as('employee.')->middleware(['
     Route::resource('usersettings', 'UserSettingController');
     Route::resource('evaluation', 'EvaluationController');
     Route::resource('skills', 'SkillController');
+    Route::resource('idps', 'IDPController');
     
 });
 
