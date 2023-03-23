@@ -134,6 +134,11 @@ Breadcrumbs::register("employee.break_timings", function ($breadcrumbs) {
     $breadcrumbs->push('Break Timings');
 });
 
+Breadcrumbs::register("employee.idps", function ($breadcrumbs) {
+    $breadcrumbs->parent("employee.index");
+    $breadcrumbs->push('idps ');
+});
+
 Breadcrumbs::register("employee.mailoverride", function ($breadcrumbs) {
     $breadcrumbs->parent("employee.index");
     $breadcrumbs->push('mailoverride ');

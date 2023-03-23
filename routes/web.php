@@ -64,6 +64,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['role:admin|super-user',
     Route::get('employee/login/{id}', 'EmployeeController@login')->name('employee.login');
     Route::get('employee/upcoming_birthday', 'EmployeeController@upcoming_birthday')->name('employee.upcoming_birthday');
     Route::match(['get', 'post'],'employee/mailoverride/{id}', 'EmployeeController@overridreportmail')->name('employee.mailoverride');
+    Route::get('employee/idps/{id}', 'EmployeeController@idps')->name('employee.idps');
     Route::get('employee/breaktimings', 'EmployeeController@getbreakTimingReports')->name('employee.break_timings');
     Route::get('employee/monthlybreaks', 'EmployeeController@employeeMonthlyBreaks')->name('employee.monthlybreaks');
     Route::get('employee/traineebreaktimings', 'EmployeeController@getTraineebreakTimingReports')->name('employee.trainee_breaktimings');

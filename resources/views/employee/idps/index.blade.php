@@ -102,7 +102,7 @@
                                                         @endphp
                                                         <div class="row m-t-10">
                                                             <div class="col-md-9">
-                                                                {{ Form::text("personal_motivation[work_life_balance ][$key_2_2]", '', ['class' => 'form-control', 'required']) }}
+                                                                {{ Form::text("personal_motivation[work_life_balance][$key_2_2]", '', ['class' => 'form-control', 'required']) }}
                                                             </div>
                                                         </div>
                                                         <div class="work-life-balance">
@@ -614,7 +614,7 @@
                                             </div>
                                             <div class="col-md-12  m-t-15">
                                                 <div class="form-group">
-                                                    {{ Form::text('development_action_plan[completion_date]', @$model->development_action_plan['completion_date'], ['class' => 'form-control', 'required']) }}
+                                                    {{ Form::text('development_action_plan[completion_date]', @$model->development_action_plan['completion_date'], ['class' => 'form-control datepicker', 'required']) }}
                                                 </div>
                                             </div>
                                         </div>
@@ -649,6 +649,7 @@
     </div>
 @push('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <style>
         .wizard>.steps>ul>li {
             width: 15% !important ;
@@ -667,15 +668,15 @@
             background: gray;
             color: white;
         }
-        
     </style>
 @endpush
 @push('scripts')
     <script src="{{asset('js/jquery.validate.js')}}"></script>
     <script src="{{asset('js/jquery.steps.js')}}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script>
         $(document).ready(function (){
-            $("select2").select();
+            
 
             var div = $("#idp-form").show();
             var form = $("#idp_post");
@@ -687,6 +688,10 @@
                     enableAllSteps: true,
                     onStepChanging: function (event, currentIndex, newIndex)
                     {
+                        $('.datepicker').datepicker({
+                            format: 'yyyy-mm-dd',
+                            autoclose: true, todayHighlight: true,
+                        });
                         if (currentIndex == 0 && (newIndex == 2 || newIndex == 3 || newIndex == 4)) {
                             return false;
                         }

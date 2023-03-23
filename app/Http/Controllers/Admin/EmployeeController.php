@@ -16,6 +16,7 @@ use App\Models\User;
 use App\Models\Setting;
 use App\Models\Report;
 use App\Models\Entry;
+use App\Models\IDP;
 use App\Models\UserSettings;
 
 use Carbon\Carbon;
@@ -165,20 +166,20 @@ class EmployeeController extends Controller {
         $data['request'] = $request;
         
         $query = Employee::oldest('name')->permanent()->where('officetiming_id','<>',"");
-        if($request->inactive_employee == 0){
+        if($request->inactive_employee == 0) {
             $query->active();
         }   
 
         if($emp = $request->employee_id)
         {
-            $query->whereIn('id', $emp);   
+            $query->whereIn('id', $emp);
         }
 
-        $data['employees'] = $query->get(); 
+        $data['employees'] = $query->get();
         $query = Employee::oldest('name')->permanent();
         if($request->inactive_employee == 0){
             $query->active();
-        }  
+        }
        
         $data['all_employees'] = $query->get();
         $data['employees_list'] = $data['all_employees']->pluck("name", "id")->toArray();
@@ -439,7 +440,12 @@ class EmployeeController extends Controller {
         return view('admin.employees.mailoverride', $data);
 
     }
-  
-    
 
+    public function idps($id)
+    {
+        $data['model'] = IDP::where('employee_id', $id)->first();
+
+        return view('admin.employees.idps', $data);
+    }
+  
 }
