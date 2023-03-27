@@ -55,7 +55,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 {{ Form::label('officetiming_id','Choose Office Timings*',['class'=>'']) }}
-                {{ Form::select('officetiming_id', $officetimings, @$Employee->officetiming_id, ['class' => 'form-control','placeholder'=>'Select Office timings']) }}
+                {{ Form::select('officetiming_id', $officetimings, @$Employee->officetiming_id, ['class' => 'form-control']) }}
             </div>
         </div>
         <div class="col-md-4">
