@@ -64,6 +64,7 @@
                 }
             };
 
+            
             DataTable.ext.buttons.official_permission_leave = {
                 className: 'buttons-schedule',
                 text: function (dt) {
