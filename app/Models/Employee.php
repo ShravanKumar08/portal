@@ -25,7 +25,7 @@ class Employee extends BaseModel
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'name', 'employeetype', 'gender', 'dob', 'designation_id', 'photo'];
+    protected $fillable = ['user_id', 'name', 'employeetype', 'gender', 'dob', 'designation_id', 'photo', 'emp_id'];
 
     protected $softCascade = ['user'];
 
