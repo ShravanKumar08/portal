@@ -330,8 +330,8 @@ class EmployeeController extends Controller {
      * @return Response
      */
     public function destroy(Employee $employee, User $user) {
-        $user->where(['id' => $employee->user_id])->delete();
-        $employee->delete();
+        User::where('id', $employee->user->id)->delete();
+        Employee::where('id', $employee->id)->delete();
     }
 
     private function _validate($request, $id = null, $uid = null) {

@@ -77,6 +77,12 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ Form::label('emp_id', 'Employee Id*', ['class' => '']) }}
+                {{ Form::text('emp_id', old('emp_id'), ['class' => 'form-control']) }}
+            </div>
+        </div>
         {{--<div class="col-md-4">--}}
             {{--<div class="form-group">--}}
                 {{--{{ Form::label('phone','Phone*',['class'=>'']) }}--}}

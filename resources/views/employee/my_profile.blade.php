@@ -11,7 +11,7 @@
                     <img src="{{ $Employee->avatar }}" class="img-circle" width="100">
                     <h4 class="card-title">{{ $Employee->name }}</h4>
                     <h6 class="card-subtitle">{{ $Employee->email}}</h6>
-                    <h6 class="card-subtitle">Employee Id: {{ $Employee->employee_deviceuserid}}</h6>
+                    <h6 class="card-subtitle">Employee Id: {{ $Employee->emp_id}}</h6>
                     <p class="text-white">{{ $Employee->designation->name }}</p>
                     @if(@$Employee->user->active)
                         <p class="card-subtitle">Experience: ({{ $Employee->current_experience }})</p>

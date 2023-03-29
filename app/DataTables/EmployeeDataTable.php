@@ -134,7 +134,7 @@ class EmployeeDataTable extends BaseDataTable
         $columns = [
             'name',
             'user.email' => ['title' => 'Email'],
-            'user.deviceid' => ['title' => 'Employee ID'],
+            'emp_id' => ['title' => 'Employee Id'],
 //            'phone',
             'designation.name' => ['title' => 'Designation'],
         ];
