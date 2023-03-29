@@ -24,7 +24,9 @@ class CustomfieldController extends Controller
      */
     public function index(CustomfieldDataTable $dataTable)
     {
-        return $dataTable->addScope(new \App\DataTables\Scopes\BaseDataTableScope)->render('admin.customfield.index');
+        $data['formgroups'] = CustomField::where('formgroup', '!=', null)->groupBy('formgroup')->pluck('formgroup', 'formgroup')->toArray();
+
+        return $dataTable->addScope(new \App\DataTables\Scopes\BaseDataTableScope)->render('admin.customfield.index', $data);
     }
 
     /**

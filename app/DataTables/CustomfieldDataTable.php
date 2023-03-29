@@ -35,7 +35,12 @@ class CustomfieldDataTable extends BaseDataTable
      */
     public function query(CustomField $model)
     {
-        return $model->newQuery();
+        if (@request()->formgroup) {
+            return $model->where('formgroup', request()->formgroup)->newQuery();
+        } else {
+            return $model->newQuery();
+        }
+        
     }
 
     /**
