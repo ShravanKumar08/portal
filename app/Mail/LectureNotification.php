@@ -28,6 +28,6 @@ class LectureNotification extends Mailable
      */    
     public function build()
     {   
-        return $this->subject('Lecture Notification!')->markdown('emails.lecture.notification')->cc(env('HR_EMAIL_ID', 'hr@arkinfotec.com'))->with(['lecture' => $this->lecture]);
+        return $this->subject('Lecture Notification!')->markdown('emails.lecture.notification')->with(['lecture' => $this->lecture]);
     }
 }

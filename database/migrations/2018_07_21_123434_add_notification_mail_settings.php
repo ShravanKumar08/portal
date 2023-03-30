@@ -14,7 +14,7 @@ class AddNotificationMailSettings extends Migration
     public function up()
     {
         $values = [
-            'to' => 'admin@arkinfotec.com',
+            'to' => 'admin@technokryon.com',
             'cc' => '',
             'bcc' => '',
         ];

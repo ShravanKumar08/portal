@@ -31,6 +31,6 @@ class BirthdayEmailNotification extends Mailable
      */    
     public function build()
     {   
-        return $this->subject($this->subject)->markdown('emails.birthdaymail.wishes')->cc(env('HR_EMAIL_ID', 'hr@arkinfotec.com'))->with('mail_content', $this->content);
+        return $this->subject($this->subject)->markdown('emails.birthdaymail.wishes')->with('mail_content', $this->content);
     }
 }

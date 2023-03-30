@@ -434,7 +434,7 @@ class InsertAssessmentContentsToSettingsTable extends Migration
         <p><span style="font-family: Calibri, serif;"><span style="font-family: Cambria, serif;"><strong>DATE: {other.current_Date_Month_Year}</strong></span></span></p>
         <h2><span style="font-family: Cambria, serif;">---------------------------------------------------------------------------------------------------------------------------</span></h2>
         <h4 style="text-align: center; padding-bottom: 2rem;"><em>FOR COMPANY MANAGEMENT USE</em></h4>
-        <h3 class="western">OVERALL COMMENTS FROM THE MANAGEMENT OF SUMANAS TECHNOLOGIES:</h3>
+        <h3 class="western">OVERALL COMMENTS FROM THE MANAGEMENT OF TechnoKryon:</h3>
         <table style="height: 217px;" border="1" width="679" cellspacing="0">
         <tbody>
         <tr>

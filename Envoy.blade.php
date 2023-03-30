@@ -1,4 +1,4 @@
-@servers(['web' => 'deploy-arkinfotec-production', 'staging' => 'deploy-sumanas-staging'])
+@servers(['web' => 'deploy-technokryon-production', 'staging' => 'deploy-technokryon-staging'])
 
 @task('deploy', ['on' => 'web', 'confirm' => true])
     cd ~/public_html/home_projects/wfm/

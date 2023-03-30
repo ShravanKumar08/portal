@@ -511,7 +511,7 @@ class InsertAssessmentContentToSettingsTable extends Migration
         <h2 class="western" style="text-align: center; padding-left: 60px;"><span style="font-family: Cambria, serif;">----------------------------------------------------------------------------------------------------------------------------</span></h2>
         <h4 class="western" style="padding-left: 180px; text-align: right;"><span style="font-family: Cambria, serif;"><em>FOR COMPANY MANAGEMENT USE</em></span></h4>
         <h4 class="western" style="padding-left: 240px;">&nbsp;</h4>
-        <h4 class="western">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OVERALL COMMENTS FROM THE MANAGEMENT OF SUMANAS TECHNOLOGIES:</h4>
+        <h4 class="western">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OVERALL COMMENTS FROM THE MANAGEMENT OF TechnoKryon:</h4>
         <h2 class="western">&nbsp;</h2>
         <table style="width: 698px; margin-left: 120px; height: 217px;" border="1">
         <tbody style="padding-left: 120px;">

@@ -30,14 +30,14 @@ class Kernel extends ConsoleKernel
 //            Log::info(Carbon::now()->toDateTimeString().' cron runs at');
 //        })->everyMinute();
 
-        $schedule->command('custom:report:check')->dailyAt('01:00');
-        $schedule->command('custom:reset:permissionleave')->monthlyOn(1, '02:00');	
-        $schedule->command('custom:employee:monthlyassessment')->monthlyOn(31, '22:00');
-        $schedule->command('custom:birthday:notification')->dailyAt('10:00');
-        $schedule->command('custom:sync:casual')->yearly();
-        $schedule->command('custom:fix:unusedproject')->dailyAt('03:00');
-        $schedule->command('custom:schedule:execute')->dailyAt('00:05');
-        $schedule->command('custom:sync:officetime')->monthlyOn(1, '03:00');
+        // $schedule->command('custom:report:check')->dailyAt('01:00');
+        // $schedule->command('custom:reset:permissionleave')->monthlyOn(1, '02:00');
+        // $schedule->command('custom:employee:monthlyassessment')->monthlyOn(31, '22:00');
+        $schedule->command('custom:birthday:notification')->everyMinute();
+        // $schedule->command('custom:sync:casual')->yearly();
+        // $schedule->command('custom:fix:unusedproject')->dailyAt('03:00');
+        // $schedule->command('custom:schedule:execute')->dailyAt('00:05');
+        // $schedule->command('custom:sync:officetime')->monthlyOn(1, '03:00');
 
         //DB Backup commands
         $schedule->command('backup:run --only-db')->weekly();

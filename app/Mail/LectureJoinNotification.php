@@ -29,6 +29,6 @@ class LectureJoinNotification extends Mailable
     public function build()
     {   
         $name = \Auth::user()->employee->name;
-        return $this->subject("Lecture Joined: {$name}")->markdown('emails.lecture.join_notification')->cc(env('HR_EMAIL_ID', 'hr@arkinfotec.com'))->with(['lecture' => $this->lecture]);
+        return $this->subject("Lecture Joined: {$name}")->markdown('emails.lecture.join_notification')->with(['lecture' => $this->lecture]);
     }
 }

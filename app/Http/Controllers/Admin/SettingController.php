@@ -246,7 +246,7 @@ class SettingController extends Controller
 
     public function emailpreview(Request $request)
     {
-        $subject = 'Hearty Wishes from Team Sumanas!';
+        $subject = 'Hearty Wishes from Team Technokryon!';
         $employee = Employee::query()->active()->first();
         $birthday_subject = $request->emailparams;
         $content = $request->email_content;

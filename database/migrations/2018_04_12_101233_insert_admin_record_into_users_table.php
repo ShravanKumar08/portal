@@ -18,7 +18,7 @@ class InsertAdminRecordIntoUsersTable extends Migration
         });
 
 //        $user = \App\Models\User::firstOrNew([
-//            'email' => 'admin@arkinfotec.com'
+//            'email' => 'admin@technokryon.com'
 //        ]);
 //        $user->name = 'Admin';
 //        $user->password = bcrypt('123456');

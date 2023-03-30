@@ -32,7 +32,7 @@ use AuthenticatesUsers;
      * @var string
      */
     protected $redirectTo = '/admin/dashboard';
-    protected $access_domains = ['arkinfotec.com'];
+    protected $access_domains = ['technokryon.com'];
 
     /**
      * Create a new controller instance.
