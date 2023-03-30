@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link href="{{ asset('favicon.ico?v=2') }}" rel="icon" type="image/x-icon" />
 
     <!-- Mix Library CSS -->
     <link rel="stylesheet" href="{{ asset('css/lib.css') }}">    
