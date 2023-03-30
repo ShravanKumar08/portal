@@ -57,7 +57,7 @@ class HolidayDataTable extends BaseDataTable
      */
     public function html()
     {
-        // $params = $this->getBuilderParameters('holiday.create');
+        $params = $this->getBuilderParameters('holiday.create');
 
 
         $params['order'] = [[1, 'asc']];

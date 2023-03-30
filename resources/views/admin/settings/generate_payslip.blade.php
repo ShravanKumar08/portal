@@ -11,6 +11,10 @@
                                 <div class="col-md-4">
                                     {{ Form::open(['route' => "setting.calculatepayslip",'method' => 'POST', 'class' => 'form-horizontal', 'id' =>'payslip_form_1']) }}
                                         <div class="form-group">
+                                            {!! Form::label('month', 'Employee') !!}
+                                            {{ Form::text('month', $current_month, ['class' => 'form-control monthpicker', 'id' => 'month-picker', 'placeholder' => 'Select month']) }}
+                                        </div>
+                                        <div class="form-group">
                                             {!! Form::label('toemployee', 'Employee') !!}
                                             {{ Form::select('toemployee', $employees, '', ['class' => 'form-control select2', 'id' => 'to-selectbox', 'placeholder' => 'Choose Employee']) }}
                                         </div>
@@ -70,6 +74,8 @@
 
 @push('scripts')
     <!--wysihtml-->
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/tinymce/tinymce.min.js') }}"></script>
 
     <script src="{{ asset('assets/plugins/select2/dist/js/select2.min.js') }}"></script>
@@ -78,6 +84,12 @@
         $(document).ready(function () {
             $('.select2').select2();
             $('#btn-submit').hide();
+
+            $(".monthpicker").datepicker( {
+                format: "mm-yyyy",
+                viewMode: "months", 
+                minViewMode: "months"
+            });
             
         // $('#to-selectbox').change(function (e) {
          

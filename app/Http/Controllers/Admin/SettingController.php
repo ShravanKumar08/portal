@@ -15,6 +15,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\PaySlip;
 use App\Mail\BirthdayEmailWishes;
+use App\Models\Holiday;
+use Carbon\Carbon;
 use DateInterval;
 use DatePeriod;
 use DateTime;
@@ -193,6 +195,7 @@ class SettingController extends Controller
     {
         if ($request->isMethod('post')) {
             $this->validate($request, [
+                'month' => 'required',
                 'toemployee' => 'required|email',
                 'subject' => 'required',
                 'mail_content' => 'required',
@@ -203,10 +206,12 @@ class SettingController extends Controller
 
             return response()->json(true);
         } else {
-            $employees = Employee::oldest('name')->active()->get()->pluck("name", "user.email")->toArray();
-            $email_templates = Setting::whereIn('name', ['PAYSLIP_CONTENT_MAIL', 'PAYSLIP_PDF_MAIL'])->get();
+            $data['employees']          = Employee::oldest('name')->active()->get()->pluck("name", "user.email")->toArray();
+            $data['email_templates']    = Setting::whereIn('name', ['PAYSLIP_CONTENT_MAIL', 'PAYSLIP_PDF_MAIL'])->get();
+            $data['current_month']      = Carbon::now()->format('m-Y');
+            $data['request']            = $request;
 
-            return view('admin.settings.generate_payslip', compact('employees', 'email_templates','request'));
+            return view('admin.settings.generate_payslip', $data);
         }
     }
 
@@ -254,8 +259,9 @@ class SettingController extends Controller
 
     public function calculatepayslip(Request $request)
     {
-        $start = new DateTime('2023-02-06');
-        $end = new DateTime('2023-02-25');
+        $start = new DateTime(Carbon::parse('26-'.$request->month)->submonth()->format('Y-m-d'));
+        $end = new DateTime('25-'.$request->month);
+
         // otherwise the  end date is excluded (bug?)
         $end->modify('+1 day');
 
@@ -268,7 +274,10 @@ class SettingController extends Controller
         $period = new DatePeriod($start, new DateInterval('P1D'), $end);
 
         // best stored as array, so you can add more than one
-        $holidays = array('2012-09-07');
+
+        $holidays = Holiday::whereBetween('date', [date(Carbon::parse('26-'.$request->month)->submonth()->format('Y-m-d')), date(Carbon::parse('25-'.$request->month)->format('Y-m-d'))])
+            ->pluck('date')->toArray();
+        
 
         foreach($period as $dt) {
             $curr = $dt->format('D');
@@ -285,6 +294,7 @@ class SettingController extends Controller
         }
 
         $this->validate($request, [
+            'month' => 'required',
             'toemployee' => 'required|email',
             'gross_pay' => 'required|numeric',
             'lop' => 'nullable|numeric',
