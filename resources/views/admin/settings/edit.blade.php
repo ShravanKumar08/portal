@@ -29,7 +29,7 @@
                             {!! Form::email('to_emailid','', ['class' => 'form-control to_emailid', 'required']) !!}
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button type="submit" id="prev_submit" class="btn btn-primary">Send</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </form>

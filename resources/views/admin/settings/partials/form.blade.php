@@ -79,6 +79,10 @@
                         emailparams: $('.emailparams').val(),
                         email_content: $('.birthday_email').val(),
                     },
+                    beforeSend: function() { 
+                        $("#prev_submit").html('Sending ...');
+                        $("#prev_submit").prop('disabled', true); // disable button
+                    },
                     success: function () {
                         $('#emailid_popup').modal('hide');
                         $.toast({
@@ -90,6 +94,10 @@
                             hideAfter: 3500, 
                             stack: 6
                         });
+                    },
+                    complete:function(data){
+                        $("#prev_submit").html('Send');
+                        $("#prev_submit").prop('disabled', false);
                     }
                                 
                 });
